@@ -1,0 +1,348 @@
+/* Default Light Mode Styles */
+body {
+  background-color: white;
+  color: black;
+  transition: all 0.3s ease;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header Section */
+header {
+  background-color: #1e3a8a;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 10px 0;
+  text-align: center;
+}
+
+/* Button Styles */
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Text Colors */
+.text-gray-600 {
+  color: #4b5563;
+}
+
+/* Background Colors for Components */
+.bg-white {
+  background-color: white;
+}
+
+/* Background for content sections */
+.bg-gray-100 {
+  background-color: #f3f4f6;
+}
+
+/* Footer Section */
+footer {
+  background-color: #1f2937;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+/* Smooth Scroll for the Entire Page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Card Styles */
+.card {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.card-description {
+  color: #555;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+/* Gradient Animated Button */
+button.gradient-btn {
+  background: linear-gradient(90deg, #ff7e5f, #feb47b);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.4s ease;
+}
+
+button.gradient-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background-color: white;
+  transition: width 0.4s ease, height 0.4s ease, top 0.4s ease, left 0.4s ease;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+button.gradient-btn:hover::before {
+  width: 0;
+  height: 0;
+  top: 50%;
+  left: 50%;
+}
+
+button.gradient-btn:hover {
+  color: #ff7e5f;
+}
+
+/* Modal Window with Fade-In Effect */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease;
+}
+
+.modal.open {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.modal.open .modal-content {
+  transform: scale(1);
+}
+
+.modal-content h2 {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.modal-content p {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #333;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #ff7e5f;
+}
+
+/* Floating Action Button */
+.fab {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background-color: #ff7e5f;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-size: 1.5rem;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fab:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Gradient Background Animation */
+@keyframes gradient-animation {
+  0% {
+    background: linear-gradient(45deg, #ff7e5f, #feb47b);
+  }
+  50% {
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+  }
+  100% {
+    background: linear-gradient(45deg, #ff7e5f, #feb47b);
+  }
+}
+
+body {
+  background: linear-gradient(45deg, #ff7e5f, #feb47b);
+  animation: gradient-animation 5s ease infinite;
+}
+
+/* Glassmorphism Effect */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.glass:hover {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Neumorphism Effect */
+.neumorphism {
+  background: #e0e0e0;
+  border-radius: 20px;
+  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.1), -8px -8px 15px rgba(255, 255, 255, 0.7);
+  padding: 20px;
+  transition: box-shadow 0.3s ease;
+}
+
+.neumorphism:hover {
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15), -4px -4px 8px rgba(255, 255, 255, 0.75);
+}
+
+/* Mobile Responsive */
+@media (max-width: 767px) {
+  header {
+    padding: 15px;
+  }
+
+  .card-content {
+    padding: 15px;
+  }
+
+  .navbar {
+    padding: 10px 0;
+    text-align: left;
+  }
+
+  .fab {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  /* Reduce button sizes */
+  button, .gradient-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+  /* Stack card elements on small screens */
+  .card {
+    margin-bottom: 20px;
+  }
+}
+
+/* Tablet and Small Desktop View */
+@media (min-width: 768px) and (max-width: 1024px) {
+  header {
+    padding: 20px;
+  }
+
+  .card-content {
+    padding: 20px;
+  }
+
+  .fab {
+    bottom: 30px;
+    right: 30px;
+  }
+}
+
+/* Desktop and Large Screens */
+@media (min-width: 1025px) {
+  .navbar {
+    padding: 15px 0;
+  }
+
+  .card {
+    margin: 15px;
+  }
+}
