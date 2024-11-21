@@ -1,13 +1,29 @@
 import React, { useState, useContext } from 'react';
-import { AuthContext } from './Login'; // Import the AuthContext
+import { AuthContext } from './Login';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashAlt, faUserShield, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faTrashAlt, faUserShield, faUser, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 
 const UserManagement = () => {
-  const { user } = useContext(AuthContext); // Get the logged-in user's data
+  const { user } = useContext(AuthContext);
   const [users, setUsers] = useState([
-    { id: 1, name: user.name, email: user.email, role: user.role, status: 'Active' } // Dynamically use logged-in user's role
+    { id: 1, name: user.name, email: user.email, role: user.role, status: 'Active' }
   ]);
+
+  // Add functionality to use setUsers
+  const deleteUser = (userId) => {
+    setUsers(users.filter(user => user.id !== userId));
+  };
+
+  const addUser = () => {
+    const newUser = {
+      id: users.length + 1,
+      name: "New User",
+      email: "newuser@example.com",
+      role: "User",
+      status: "Active"
+    };
+    setUsers([...users, newUser]);
+  };
 
   return (
     <div className="space-y-6">
@@ -29,13 +45,22 @@ const UserManagement = () => {
             <span className="font-bold">Email:</span> {user.email}
           </p>
           <p>
-            <span className="font-bold">Role:</span> {user.role} {/* Dynamically display role */}
+            <span className="font-bold">Role:</span> {user.role}
             <FontAwesomeIcon icon={user.role === 'Admin' ? faUserShield : faUser} className="ml-2 text-xl" />
           </p>
           <p>
             <span className="font-bold">Status:</span> Active
           </p>
         </div>
+        {user.role === 'Admin' && (
+          <button 
+            onClick={addUser}
+            className="bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600 transition-colors"
+          >
+            <FontAwesomeIcon icon={faUserPlus} className="mr-2" />
+            Add User
+          </button>
+        )}
       </div>
 
       {/* User Management Table */}
@@ -50,20 +75,25 @@ const UserManagement = () => {
           </tr>
         </thead>
         <tbody>
-          {users.map((user) => (
-            <tr key={user.id} className="border-b">
-              <td className="p-3">{user.name}</td>
-              <td className="p-3">{user.email}</td>
+          {users.map((u) => (
+            <tr key={u.id} className="border-b">
+              <td className="p-3">{u.name}</td>
+              <td className="p-3">{u.email}</td>
               <td className="p-3">
-                {user.role}
-                <FontAwesomeIcon icon={user.role === 'Admin' ? faUserShield : faUser} className="ml-2 text-xl" />
+                {u.role}
+                <FontAwesomeIcon icon={u.role === 'Admin' ? faUserShield : faUser} className="ml-2 text-xl" />
               </td>
-              <td className="p-3">{user.status}</td>
+              <td className="p-3">{u.status}</td>
               <td className="p-3">
-                <button className="text-red-500 hover:text-red-700">
-                  <FontAwesomeIcon icon={faTrashAlt} className="mr-2" />
-                  Delete
-                </button>
+                {user.role === 'Admin' && u.id !== user.id && (
+                  <button 
+                    onClick={() => deleteUser(u.id)}
+                    className="text-red-500 hover:text-red-700 transition-colors"
+                  >
+                    <FontAwesomeIcon icon={faTrashAlt} className="mr-2" />
+                    Delete
+                  </button>
+                )}
               </td>
             </tr>
           ))}
